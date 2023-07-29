@@ -1,0 +1,30 @@
+These two queries add categories to the trip times.
+SELECT START_TIME::TIME AS TRIP_BEGIN_TIME,
+	END_TIME::TIME AS TRIP_FINISH_TIME,
+	START_STATION_ID, 
+	CASE 
+		when START_TIME::TIME >= '05:00:00' and START_TIME::TIME <= '11:00:00' then 'morning'
+		when START_TIME::TIME > '11:00:00' and START_TIME::TIME <= '16:00:00' then 'midday'
+		when START_TIME::TIME > '16:00:00' and START_TIME::TIME <= '19:00:00' then 'afterwork'
+		when START_TIME::TIME > '19:00:00' and START_TIME::TIME <= '00:00:00' then 'night'
+		else 'predawn'
+		end as start_time_of_day
+	FROM PUBLIC.BLUEBIKES_2019
+	where START_TIME::TIME >= '05:00:00'
+ORDER BY 1, 2
+LIMIT 5000;
+
+
+
+SELECT date_part('hour', START_TIME::time) AS TRIP_BEGIN_TIME,
+	date_part('hour', END_TIME::TIME) AS TRIP_FINISH_TIME,
+	START_STATION_ID, 
+	CASE 
+		when START_TIME::TIME >= '05:00:00' and START_TIME::TIME <= '11:00:00' then 'morning'
+		when START_TIME::TIME > '11:00:00' and START_TIME::TIME <= '16:00:00' then 'midday'
+		when START_TIME::TIME > '16:00:00' and START_TIME::TIME <= '19:00:00' then 'afterwork'
+		when START_TIME::TIME > '19:00:00' and START_TIME::TIME <= '00:00:00' then 'night'
+		else 'predawn'
+		end as start_time_of_day
+	FROM PUBLIC.BLUEBIKES_2019
+LIMIT 5000;

@@ -1,0 +1,21 @@
+select start_st.name, end_station.name, count(start_st.name)
+from public.bluebikes_2019 b
+	join public.bluebikes_stations start_st 
+	on b.start_station_id = start_st.id 
+	join public.bluebikes_stations end_station 
+	on b.end_station_id = end_station.id 
+where (start_st.name ilike '%Roxbury Crossing %' 
+	or start_st.name ilike '%Brigham Cir%francis%' 
+	or start_st.name ilike '%Huntington Ave at Mass%'
+	OR start_st.name ilike '%Alphonsus%'
+	OR start_st.name ilike '%Wentworth Institute%'
+	OR start_st.name ilike '%One Brigham Cir%')
+	and
+	(end_station.name ilike '%Roxbury Crossing %' 
+	or end_station.name ilike '%Brigham Cir%francis%' 
+	or end_station.name ilike '%Huntington Ave at Mass%'
+	OR end_station.name ilike '%Alphonsus%'
+	OR end_station.name ilike '%Wentworth Institute%'
+	OR end_station.name ilike '%One Brigham Cir%')
+group by 1,2
+order by 1,3;

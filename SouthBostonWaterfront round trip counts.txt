@@ -1,0 +1,33 @@
+select Count(start_st.name)
+from public.bluebikes_2019 b
+	join public.bluebikes_stations start_st 
+	on b.start_station_id = start_st.id 
+	join public.bluebikes_stations end_station 
+	on b.end_station_id = end_station.id 
+where (start_st.NAME ilike '%Seaport Blvd%Sleeper%'
+						OR start_st.NAME ilike '%Seaport Square'
+						OR start_st.NAME ilike '%State Street at Channel%'
+						OR start_st.NAME ilike '%Lawn on D'
+						OR start_st.NAME ilike 'Watermark Seaport - Boston Wharf%'
+						OR start_st.NAME ilike '%Building East%'
+						OR start_st.NAME ilike '%Building West%'
+						OR start_st.NAME ilike '%Pier 4 Blvd%'
+						OR start_st.NAME ilike '%645 Summer%'
+						OR start_st.NAME ilike '%Boston Convention%'
+						OR start_st.NAME ilike '%Congress St%Northern%'
+						OR start_st.NAME ilike '%Dorchester Ave%Gillette%'
+						OR start_st.NAME ilike '%Fan Pier%')
+	and
+	(end_station.NAME ilike '%Seaport Blvd%Sleeper%'
+						OR end_station.NAME ilike '%Seaport Square'
+						OR end_station.NAME ilike '%State Street at Channel%'
+						OR end_station.NAME ilike '%Lawn on D'
+						OR end_station.NAME ilike 'Watermark Seaport - Boston Wharf%'
+						OR end_station.NAME ilike '%Building East%'
+						OR end_station.NAME ilike '%Building West%'
+						OR end_station.NAME ilike '%Pier 4 Blvd%'
+						OR end_station.NAME ilike '%645 Summer%'
+						OR end_station.NAME ilike '%Boston Convention%'
+						OR end_station.NAME ilike '%Congress St%Northern%'
+						OR end_station.NAME ilike '%Dorchester Ave%Gillette%'
+						OR end_station.NAME ilike '%Fan Pier%');
