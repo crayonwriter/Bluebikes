@@ -1,0 +1,34 @@
+Population in Mission hills	
+4538	Higher #
+2862	
+	
+Population in South Boston Waterfront	
+18722	Higher #
+16000	
+	
+	
+Higher pop of SBW divided by Higher pop of MH	
+4.125605994	
+Mission hill 4 times less populous	
+South boston waterfront is about 4 times more populous	
+
+
+
+Total Rides from MH	39520	
+		
+		
+Total Rides from SBW	89450	
+		
+SBW rides/MH rides = 2.1875	
+But the total rides from SBW are only 2.2 times more, not 4 times more as expected with the larger population size.
+
+
+
+MH Round trips	4623	11.70%	11.7 percent of MH trips are round trips		
+			
+SBW Round Trips	11955	13.37%	13.4 percent of SBW trips are round trips
+
+Would expect more if tourists were sightseeing in SBW			
+
+		
+
